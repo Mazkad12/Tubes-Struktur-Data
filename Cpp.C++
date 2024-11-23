@@ -21,16 +21,22 @@ adr_Club createElemenClub (infotype C) {
     prev(P) = NULL;
     return p;
 }
-void InsertElemenAtlet (ListAtlet &L, adr_Atlet P);
+void InsertElemenAtlet (ListAtlet &L, adr_Atlet P){
+..............
+}
 
 void InsertElemenClub (ListClub &L, adr_Club P) {
     prev(P) = last(L);
     next(last(L)) = P;
     last(L) = P;
 }
-void InsertElemenRelation (adr_relation R, ListClub &L);
+void InsertElemenRelation (adr_relation R, ListClub &L){
+................
+}
 
-void DeleteElemenAtlet (ListAtlet &L, adr_Atlet P);
+void DeleteElemenAtlet (ListAtlet &L, adr_Atlet P){
+............
+}
 
 void DeleteElemenClub (ListClub &L, adr_Club P) {
     P = last(L);
@@ -38,4 +44,6 @@ void DeleteElemenClub (ListClub &L, adr_Club P) {
     prev(P) = NULL;
     next(last(L)) = NULL;
 }
-void DeleterElemenRelation (adr_relation R, ListClub &L);
+void DeleterElemenRelation (adr_relation R, ListClub &L){
+.........
+}
