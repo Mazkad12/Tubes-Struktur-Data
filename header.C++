@@ -39,6 +39,7 @@ struct elmAtlet {
 struct elmClub {
     infotype info;
     adr_Club next;
+    adr_Club prev;
 };
 
 struct ListAtlet {
