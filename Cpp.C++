@@ -15,10 +15,10 @@ adr_Atlet createElemenAtlet (infotype A){
     return P;
 }
 adr_Club createElemenClub (infotype C) {
-    adr_Club p = new elmClub;
-    info(p) = C;
-    next(p) = NULL;
-    prev(p) = NULL;
+    adr_Club P = new elmClub;
+    info(P) = C;
+    next(P) = NULL;
+    prev(P) = NULL;
     return p;
 }
 void InsertElemenAtlet (ListAtlet &L, adr_Atlet P);
