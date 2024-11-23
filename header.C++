@@ -6,7 +6,8 @@
 #define info(P) (P)->info
 #define next(P) (P)->next
 #define prev(P) (P)->prev
-#define first(mll) mll.first
+#define first(L) L.first
+#define last(L) L.last
 
 struct Atlet {
     string ID;
@@ -48,6 +49,7 @@ struct ListAtlet {
 
 struct ListClub {
     adr_Club first;
+    adr_Club last;
 };
 
 
