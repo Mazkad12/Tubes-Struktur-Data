@@ -6,7 +6,8 @@
 #define info(P) (P)->info
 #define next(P) (P)->next
 #define prev(P) (P)->prev
-#define first(L) L.first
+#define first(A) A.first
+#define first(C) C.first
 #define last(L) L.last
 using namespace std;
 struct Atlet {
@@ -52,7 +53,7 @@ struct ListClub {
     adr_Club first;
 };
 
-
+//prosedur Atlet
 void createListAtlet (ListAtlet &A);
 void createListClub (ListClub &C);
 adr_Atlet createElemenAtlet (infotype a);
@@ -66,8 +67,8 @@ void DeleterElemenRelation (adr_relation R, ListAtlet &A, ListClub &C);
 void FindAtlet (ListAtlet L);
 void FindClub (ListClub L);
 void FindAtletClub (ListAtlet L, ListClub L);
-void ShowAtlet ();
-void ShowClub ();
+void ShowAtlet (ListAtlet A);
+void ShowClub (ListClub C);
 void ShowClub_dari_Atlet_tertentu ();
 void ShowAtlet_dari_Club tertentu ();
 void Show_setiap_data_atlet_beserta_data_club_yang_berelasi ();
@@ -75,7 +76,7 @@ void Show_setiap_data_club_beserta_data_atlet_yang_berelasi ();
 int Count_jumlah_club_element_atlet_tertentu ();
 int Count_jumlah_atlet_yang_dimiliki_oleh_club_tertentu ();
 int	Count_element_club_yang_tidak_memiliki_atlet ();
-int	Count element atlet yang tidak memiliki club ();
+int	Count_element_atlet_yang_tidak_memiliki_club ();
 void Edit_relasi ();
 
 #endif // TUBESKEL15_H_INCLUDED
