@@ -1,49 +1,49 @@
 #include "tubeskel15.h"
 
-void createListAtlet (ListAtlet &L){
-    first(L) = NULL;
+void createListAtlet (ListAtlet &A){
+    first(A) = NULL;
 }
-void createListClub (ListClub &L) {
-    first(L) == NULL;
-    Last(L) == NULL;
+void createListClub (ListClub &C) {
+    first(C) == NULL;
+    Last(C) == NULL;
 }
-adr_Atlet createElemenAtlet (infotype A){
+adr_Atlet createElemenAtlet (infotype a){
     adr_Atlet P = new elmAtlet;
-    info(P) = A;
+    info(P) = a;
     next(P) = NULL;
     nextAtlet(P) = NULL;
     return P;
 }
-adr_Club createElemenClub (infotype C) {
+adr_Club createElemenClub (infotype c) {
     adr_Club P = new elmClub;
-    info(P) = C;
+    info(P) = c;
     next(P) = NULL;
     prev(P) = NULL;
     return p;
 }
-void InsertElemenAtlet (ListAtlet &L, adr_Atlet P){
+void InsertElemenAtlet (ListAtlet &A, adr_Atlet P){
 ..............
 }
 
-void InsertElemenClub (ListClub &L, adr_Club P) {
-    prev(P) = last(L);
-    next(last(L)) = P;
-    last(L) = P;
+void InsertElemenClub (ListClub &C, adr_Club P) {
+    prev(P) = last(C);
+    next(last(C)) = P;
+    last(C) = P;
 }
-void InsertElemenRelation (adr_relation R, ListClub &L){
+void InsertElemenRelation (adr_relation R, ListClub &C){
 ................
 }
 
-void DeleteElemenAtlet (ListAtlet &L, adr_Atlet P){
+void DeleteElemenAtlet (ListAtlet &A, adr_Atlet P){
 ............
 }
 
-void DeleteElemenClub (ListClub &L, adr_Club P) {
-    P = last(L);
-    last(L) = prev(last(L));
+void DeleteElemenClub (ListClub &C, adr_Club P) {
+    P = last(C);
+    last(C) = prev(last(C));
     prev(P) = NULL;
-    next(last(L)) = NULL;
+    next(last(C)) = NULL;
 }
-void DeleterElemenRelation (adr_relation R, ListClub &L){
+void DeleterElemenRelation (adr_relation R, ListClub &C){
 .........
 }
