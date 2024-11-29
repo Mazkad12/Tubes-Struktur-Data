@@ -3,12 +3,14 @@
 #include <iostream>
 #include <stdio.h>
 #define Nil NULL
+
 #define info(P) (P)->info
 #define next(P) (P)->next
 #define prev(P) (P)->prev
+
 #define first(A) A.first
 #define first(C) C.first
-#define last(L) L.last
+#define last(C) C.last
 using namespace std;
 struct Atlet {
     string ID;
