@@ -8,7 +8,7 @@
 #define prev(P) (P)->prev
 #define first(L) L.first
 #define last(L) L.last
-
+using namespace std;
 struct Atlet {
     string ID;
     string NamaA;
@@ -26,7 +26,7 @@ struct Club {
 };
 
 typedef Atlet infotype;
-typedef club infotype;
+typedef Club infotype;
 
 typedef struct elmAtlet *adr_Atlet;
 typedef struct elmClub *adr_Club;
@@ -48,21 +48,34 @@ struct ListAtlet {
 };
 
 struct ListClub {
-    adr_Club first;
     adr_Club last;
+    adr_Club first;
 };
 
 
-void createListAtlet (ListAtlet &L);
-void createListClub (ListClub &L);
-adr_Atlet createElemenAtlet (infotype A);
-adr_Club createElemenClub (infotype C);
-void InsertElemenAtlet (ListAtlet &L, adr_Atlet P);
-void InsertElemenClub (ListClub &L, adr_Club P);
-void InsertElemenRelation (adr_relation R, ListClub &L);
-void DeleteElemenAtlet (ListAtlet &L, adr_Atlet P);
-void DeleteElemenClub (ListClub &L, adr_Club P);
-void DeleterElemenRelation (adr_relation R, ListClub &L);
-void FindAtlet ()
-#endif // TUBESKEL15_H_INCLUDED
+void createListAtlet (ListAtlet &A);
+void createListClub (ListClub &C);
+adr_Atlet createElemenAtlet (infotype a);
+adr_Club createElemenClub (infotype c);
+void InsertElemenAtlet (ListAtlet &A, adr_Atlet P);
+void InsertElemenClub (ListClub &C, adr_Club P);
+void InsertElemenRelation (adr_relation R, ListAtlet &A, ListClub &C);
+void DeleteElemenAtlet (ListAtlet &A, adr_Atlet P);
+void DeleteElemenClub (ListClub &C, adr_Club P);
+void DeleterElemenRelation (adr_relation R, ListAtlet &A, ListClub &C);
+void FindAtlet (ListAtlet L);
+void FindClub (ListClub L);
+void FindAtletClub (ListAtlet L, ListClub L);
+void ShowAtlet ();
+void ShowClub ();
+void ShowClub_dari_Atlet_tertentu ();
+void ShowAtlet_dari_Club tertentu ();
+void Show_setiap_data_atlet_beserta_data_club_yang_berelasi ();
+void Show_setiap_data_club_beserta_data_atlet_yang_berelasi ();
+int Count_jumlah_club_element_atlet_tertentu ();
+int Count_jumlah_atlet_yang_dimiliki_oleh_club_tertentu ();
+int	Count_element_club_yang_tidak_memiliki_atlet ();
+int	Count element atlet yang tidak memiliki club ();
+void Edit_relasi ();
 
+#endif // TUBESKEL15_H_INCLUDED
