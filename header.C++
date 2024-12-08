@@ -1,102 +1,108 @@
-#ifndef TUBESKEL15_H_INCLUDED
-#define TUBESKEL15_H_INCLUDED
+#ifndef TUBES1_H_INCLADED
+#define TUBES1_H_INCLADED
 #include <iostream>
-#include <stdio.h>
-#define Nil NULL
-
-#define info(P) (P)->info
-#define next(P) (P)->next
-#define nextA(P) (P)->nextA
-#define nextC(P) (P)->nextC
-#define prev(P) (P)->prev
-
-#define first(L) L.first
 #define first(L) L.first
 #define last(L) L.last
+#define info(P) P->info
+#define next(P) P->next
+#define nextParent(P) P->nextParent
+#define nextChild(P) P->nextChild
+
+#define prev(P) P->prev
+
+#define Nil NULL
+
 using namespace std;
 
-
-struct Atlet {
-    string ID;
-    string NamaA;
-    string Tanggal;
-    string jeniskelamin;
-    string usia;
-    int JumlahClub;
+struct Atlet{
+    int ID;
+    string NamaAtlet;
+    string JenisKelamin;
+    int Usia;
 };
 
-struct Club {
-    string ID;
-    string NamaC;
-    string pelatih;
-    int JumlahAnggota;
+struct Klub{
+    int ID;
+    string NamaKlub;
+    string Pelatih;
 };
 
-typedef Atlet infotypeA;
-typedef Club infotypeC;
+typedef Atlet infotypeAtlet;
+typedef Klub infotypeKlub;
+typedef struct ElmAtlet *address_Atlet;
+typedef struct ElmKlub *address_Klub;
+typedef struct ElmRelasi *address_Relasi;
 
-typedef struct elmAtlet *adr_Atlet;
-typedef struct elmClub *adr_Club;
-typedef struct elmRelation *adr_Relation
-
-struct elmAtlet {
-    infotype info;
-    adr_Atlet next;
-    adr_Club nextClub;
+struct ElmRelasi{
+    address_Relasi next;
+    address_Atlet nextParent;
+    address_Klub nextChild;
 };
 
-struct elmClub {
-    infotype info;
-    adr_Club next;
-    adr_Club prev;
-};
-struct elmRelation {
-    adr_Atlet nextA;
-    adr_Relation next;
-    adr_Club nextC;
-};
-struct ListAtlet {
-    adr_Atlet first;
+struct ElmAtlet{
+    infotypeAtlet info;
+    address_Atlet next;
 };
 
-struct ListClub {
-    adr_Club last;
-    adr_Club first;
+struct ElmKlub{
+    infotypeKlub info;
+    address_Klub next;
+    address_Klub prev;
 };
 
-struct ListRelation {
-    adr_Relation first;
+struct ListAtlet{
+    address_Atlet first;
 };
 
-//prosedur Atlet
-void createListAtlet (ListAtlet &A);
-void createListClub (ListClub &C);
-adr_Atlet createElemenAtlet (infotype a);
-adr_Club createElemenClub (infotype c);
-adr_Relation createElementRelation (adr_Atlet P, adr_Club Q);
-void InsertlastAtlet (ListAtlet &A, adr_Atlet P);
-void InsertlastElemenClub (ListClub &C, adr_Club P);
-void InsertlastElemenRelation (adr_relation R, ListRelation R);
-void DeletefirstElemenAtlet (ListAtlet &A, adr_Atlet &P);
-void DeletelastElemenAtlet (ListAtlet &A, adr_Atlet &P);
-void DeleteAfterElemenAtlet (ListAtlet &A, adr_Atlet &P, adr_Atlet prec);
-void DeletefirstElemenClub (ListClub &C, adr_Club &P);
-void DeletelastElemenClub (ListClub &C, adr_Club &P);
-void DeleteAfterElemenClub (ListClub &C, adr_Club &P, adr_Club prec);
-void DeleterElemenRelation (adr_relation &R, adr_Atlet P, adr_Club Q);
-adr_Atlet FindAtlet (ListAtlet L,string ID);
-adr_Club FindClub (ListClub L, string ID);
-adr_Relation FindAtletClub (ListRelation R, adr_Atlet P, adr_Club Q);
-void ShowAtlet (ListAtlet A);
-void ShowClub (ListClub C);
-void ShowClub_dari_Atlet_tertentu (ListRelation R, adr_Atlet P);
-void ShowAtlet_dari_Club tertentu (listRelation R, adr_Club P);
-void Show_setiap_data_atlet_beserta_data_club_yang_berelasi (ListAtlet A, ListRelation R);
-void Show_setiap_data_club_beserta_data_atlet_yang_berelasi (ListClub C, ListRealation R);
-int Count_jumlah_club_element_atlet_tertentu (ListRealation R, adr_Atlet P);
-int Count_jumlah_atlet_yang_dimiliki_oleh_club_tertentu (ListRelation R, adr_Club P);
-int	Count_element_club_yang_tidak_memiliki_atlet (ListRelation R, adr_Club P);
-int	Count_element_atlet_yang_tidak_memiliki_club (ListRelation R, adr_Atlet P);
-void Edit_relasi (ListRelation &R);
+struct ListKlub{
+    address_Klub first;
+    address_Klub last;
+};
 
-#endif // TUBESKEL15_H_INCLUDED
+struct ListRelasi{
+    address_Relasi first;
+
+};
+
+void createListAtlet(ListAtlet &LA);
+void createListKlub(ListKlub &LK);
+void createList_Relasi(ListRelasi &LR);
+address_Atlet allocateAtlet(infotypeAtlet InfoAtlet);
+address_Klub allocateKlub(infotypeKlub InfoKlub);
+address_Relasi allocateRelasi();
+void insertAtlet(ListAtlet &LA, address_Atlet P);
+void insertKlub(ListKlub &LK, address_Klub P);
+void insertRelasi(ListAtlet &LA, address_Klub P, address_Klub B, address_Relasi R);
+void insertFirstR(ListRelasi &LR, address_Relasi p);
+void insertAfterR(ListRelasi &LR, address_Relasi P);
+void insertLastR(ListRelasi &LR, address_Relasi p);
+void deleteRelasi(ListAtlet &LA, address_Atlet P, address_Relasi &R, int ID);
+void deleteFirstA(ListAtlet &LA, address_Atlet P) ; 
+void deleteLastA(ListAtlet &LA, address_Atlet p);
+void deleteAtlet(ListAtlet &LA, address_Atlet p);
+void deleteFirstK(ListKlub &LK, address_Klub p);
+void deleteLastK(ListKlub &LK, address_Klub p) ;
+void deleteKlub(ListKlub &LK,address_Klub prec);
+void deleteFirstR(ListRelasi &LR, address_Relasi p);
+void deleteLastR(ListRelasi &LR, address_Relasi p);
+void deleteConnection(ListRelasi &LR, address_Relasi p);
+address_Atlet findAtlet(ListAtlet LA, int ID);
+address_Klub findKlub(ListKlub LK, int ID);
+address_Relasi findRelasi(ListAtlet LA, address_Atlet P, int ID);
+void showKlubDari_Atlet(ListAtlet LA, int IDAtlet);
+void showAtletDari_Klub(ListAtlet LA, int IDKlub);
+void showKlub(ListKlub LK);
+void showAtlet(ListAtlet LA) ;
+void showKlubFromAtlet(ListAtlet LA, ListKlub LK, ListRelasi LR);
+void showAtletFromKlub(ListAtlet LA, ListKlub LK, ListRelasi LR);
+void showInfoRelation(ListAtlet LA, ListKlub LK, ListRelasi LR);
+void connect(ListRelasi &LR,address_Atlet parent,address_Klub child, address_Relasi p);
+int countJumlahChildFromSpecificParent(ListRelasi LR,int ID);
+int countJumlahParentFromSpecificChild(ListRelasi LR, int ID);
+int Hitung_Jumlah_Klub_Tidak_Punya_Atlet(ListKlub LK, ListRelasi LR);
+int Hitung_Jumlah_Atlet_Tidak_Bergabung_Dalam_Klub(ListAtlet LA, ListRelasi LR);
+void Ubah_Klub_yang_Telah_Diikuti_Atlet(ListKlub &LK,ListRelasi &LR,int cariAtletId, int cariKlubId, int idKlubBaru);
+void Ubah_Atlet_yang_Didalam_Klub(ListAtlet &LA,ListRelasi &LR,int cariIdKlub, int cariKlubId, int idAtletBaru);
+void menuUtama(int &klik);
+
+#endif // TBS_H_INCLADED
