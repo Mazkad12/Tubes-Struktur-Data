@@ -172,10 +172,7 @@ int main()
     cout << "     Kelas: IT-47-04" << endl;
     cout << endl;
             Exit = true;
-
-
            }
 
             }
-
     }
