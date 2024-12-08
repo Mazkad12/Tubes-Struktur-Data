@@ -40,9 +40,6 @@ address_Relasi allocateRelasi(){
     return P;
 }
 
-
-
-
 void insertAtlet(ListAtlet &LA, address_Atlet P){
     if(first(LA) != Nil){
         next(P) = first(LA);
@@ -110,8 +107,6 @@ void deleteFirstParent(ListAtlet &LA, address_Atlet P) {
     }
 }
 
-
-
 void deleteLastA(ListAtlet &LA, address_Atlet p) {
     address_Atlet q;
     q = first(LA);
@@ -146,6 +141,7 @@ void deleteAtlet(ListAtlet &LA, address_Atlet p) {
         p = NULL;
         }
 }
+
 void deleteFirstK(ListKlub &LK, address_Klub p) {
     if (first(LK) == NULL) {
         cout << "List Gagal Ditemukan" << endl;
@@ -177,7 +173,6 @@ void deleteLastK(ListKlub &LK, address_Klub p) {
     }
 }
 
-
 void deleteKlub(ListKlub &LK,address_Klub p) {
     address_Klub q;
     if(p == NULL){
@@ -198,6 +193,7 @@ void deleteKlub(ListKlub &LK,address_Klub p) {
         p = NULL;
     }
 }
+
 void deleteFirstR(ListRelasi &LR, address_Relasi p) {
     if (first(LR) == NULL) {
         cout << "List Gagal Ditemukan" << endl;
@@ -210,7 +206,6 @@ void deleteFirstR(ListRelasi &LR, address_Relasi p) {
         next(p) = NULL;
     }
 }
-
 
 void deleteLastR(ListRelasi &LR, address_Relasi p) {
     address_Relasi q;
@@ -246,8 +241,6 @@ void deleteConnection(ListRelasi &LR,address_Relasi prec) {
         prec = NULL;
     }
 }
-
-
 
 address_Atlet findAtlet(ListAtlet LA, int ID) {
     address_Atlet p;
@@ -290,7 +283,6 @@ address_Klub findKlub(ListKlub LK, int ID) { // Find Klub
     cout << "Silahkan Masukkan Data Ulang" << endl;
     return NULL;
 }
-
 
 void showAtlet(ListAtlet LA) { // Show Parent
     address_Atlet P;
@@ -370,9 +362,8 @@ int countJumlahChildFromSpecificParent(ListRelasi LR, int ID){
         cout << endl;
         cout << "Jumlah Klub yang tergabung oleh Atlet dengan ID " << ID << " adalah sebanyak" << " = " << count << " Klub" << endl;
         return count;
-
-
 }
+
 int countJumlahParentFromSpecificChild(ListRelasi LR, int ID){
     address_Relasi p;
     int count = 0;
@@ -386,9 +377,8 @@ int countJumlahParentFromSpecificChild(ListRelasi LR, int ID){
     }
     cout << "Jumlah Atlet yang tergabung oleh Klub dengan ID " << ID << " adalah sebanyak" << " = " << count << " Atlet" << endl;
     return count;
-
-
 }
+
 int Hitung_Jumlah_Klub_Tidak_Punya_Atlet(ListKlub LK, ListRelasi LR){
     address_Klub p;
     address_Relasi q;
@@ -416,9 +406,8 @@ int Hitung_Jumlah_Klub_Tidak_Punya_Atlet(ListKlub LK, ListRelasi LR){
     }
     cout << "Jumlah Klub yang Belum Memiliki Atlet adalah sebesar = " << x << " Klub" << endl;
     return x;
-
-
 }
+
 int Hitung_Jumlah_Atlet_Tidak_Bergabung_Dalam_Klub(ListAtlet LA, ListRelasi LR){
     address_Atlet p;
     address_Relasi q;
@@ -446,9 +435,6 @@ int Hitung_Jumlah_Atlet_Tidak_Bergabung_Dalam_Klub(ListAtlet LA, ListRelasi LR){
     }
     cout << "Jumlah Atlet yang Belum Memiliki Klub adalah sebesar = " << x << " Atlet" << endl;
     return x;
-
-
-
 }
 
 void Ubah_Klub_yang_Telah_Diikuti_Atlet(ListKlub &LK, ListRelasi &LR,int cariAtletId,  int cariKlubId, int idKlubBaru) { // mengganti Klub dari Atlet tertentu
@@ -473,9 +459,8 @@ void Ubah_Klub_yang_Telah_Diikuti_Atlet(ListKlub &LK, ListRelasi &LR,int cariAtl
         cout << "Atlet atau Klub yang dimaksud tidak ditemukan, atau nama baru yang dimasukkan tidak sesuai" << endl;
         cout << "Silahkan Masukkan Data Kembali" << endl;
     }
-
-
 }
+
 void Ubah_Atlet_yang_Didalam_Klub(ListAtlet &LA, ListRelasi &LR,int cariAtletId,  int cariKlubId, int IdAtletBaru){
     address_Relasi p = first(LR);
     bool terubah = false;
