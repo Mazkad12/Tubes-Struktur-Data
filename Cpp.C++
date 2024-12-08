@@ -7,7 +7,6 @@ void createListAtlet(ListAtlet &LA){
 void createListKlub(ListKlub &LK){
     first(LK) = Nil;
     last(LK) = Nil;
-
 }
 
 void createList_Relasi(ListRelasi &LR){
@@ -256,11 +255,9 @@ address_Atlet findAtlet(ListAtlet LA, int ID) {
         } else {
             p = next(p);
         }
-
     }
     cout << "ID Atlet Tidak ditemukan!" << endl;
     cout << "Silahkan Masukkan Data Ulang" << endl;
-
 }
 
 address_Klub findKlub(ListKlub LK, int ID) { // Find Klub
@@ -277,12 +274,12 @@ address_Klub findKlub(ListKlub LK, int ID) { // Find Klub
         } else {
             p = next(p);
         }
-
     }
      cout << "ID Atlet Tidak ditemukan!" << endl;
     cout << "Silahkan Masukkan Data Ulang" << endl;
     return NULL;
 }
+
 
 void showAtlet(ListAtlet LA) { // Show Parent
     address_Atlet P;
@@ -297,7 +294,6 @@ void showAtlet(ListAtlet LA) { // Show Parent
     cout << endl;
       i++;
       P = next(P);
-
     }
 }
 
@@ -324,7 +320,6 @@ void showKlub(ListKlub LK){ // Show Child
         cout << endl;
         P = next(P);
     }
-
 }
 
 void showInfoRelation(ListAtlet LA, ListKlub LK, ListRelasi LR){
@@ -345,7 +340,6 @@ void showInfoRelation(ListAtlet LA, ListKlub LK, ListRelasi LR){
         cout << "Pelatih      : " << info(nextChild(p)).Pelatih << endl;
         cout << endl;
         p = next(p);
-
     }
 }
 
@@ -509,11 +503,3 @@ void menuUtama(int &klik) {
     cout << endl;
     cout << "Silahkan Klik Menu  : " ;
 }
-
-
-
-
-
-
-
-
